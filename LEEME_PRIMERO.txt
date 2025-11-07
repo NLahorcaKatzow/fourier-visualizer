@@ -275,10 +275,18 @@ Más ayuda:
 
 ═══════════════════════════════════════════════════════════════════════════════
 
-Versión: 2.0
+Versión: 3.1 (¡CON TRIGGERS + PAN!)
 Fecha: Noviembre 2025
 Estado: ✅ LISTA PARA USAR
 Tamaño: 65 MB
 
-¡Disfruta creando hermosas series de Fourier!
+✨ NOVEDADES EN v3.1:
+  • TRIGGERS: Líneas de medición vertical
+  • CHECKBOX: Activar/desactivar triggers
+  • PAN: Movimiento libre en X e Y
+  • Mide distancias y períodos exactamente
+  • Navega libremente por la gráfica
+  • ¡Mejor exploración y análisis!
+
+¡Disfruta creando hermosas series de Fourier! 🌊✨
 

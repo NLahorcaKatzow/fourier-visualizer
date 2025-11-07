@@ -2,7 +2,7 @@ import sys
 import numpy as np
 from PyQt6.QtWidgets import (QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, 
                              QLabel, QSpinBox, QDoubleSpinBox, QPushButton, QComboBox, 
-                             QGroupBox, QFormLayout, QMessageBox, QLineEdit, QScrollArea)
+                             QGroupBox, QFormLayout, QMessageBox, QLineEdit, QScrollArea, QCheckBox)
 from PyQt6.QtCore import Qt
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
@@ -21,6 +21,11 @@ class FourierVisualizer(QMainWindow):
         self.x_max = np.pi
         self.y_min = -2
         self.y_max = 2
+        
+        # Variables para pan (movimiento)
+        self.pan_press = None
+        self.pan_xpress = None
+        self.pan_ypress = None
         
         self.initUI()
         
@@ -60,6 +65,43 @@ class FourierVisualizer(QMainWindow):
         
         n_group.setLayout(n_layout)
         left_panel.addWidget(n_group)
+        
+        # Grupo: Triggers para medir período y valores
+        trigger_group = QGroupBox("Triggers - Líneas de Medición")
+        trigger_layout = QFormLayout()
+        
+        # Checkbox para activar/desactivar triggers
+        self.trigger_enabled = QCheckBox("Activar Triggers")
+        self.trigger_enabled.setChecked(True)
+        self.trigger_enabled.stateChanged.connect(self.actualizar_grafica)
+        trigger_layout.addRow("", self.trigger_enabled)
+        
+        self.trigger_x1_input = QLineEdit()
+        self.trigger_x1_input.setText("-3.14")
+        self.trigger_x1_input.setPlaceholderText("Posición X inicial")
+        self.trigger_x1_input.textChanged.connect(self.actualizar_grafica)
+        trigger_layout.addRow("X Inicial (Trigger 1):", self.trigger_x1_input)
+        
+        self.trigger_x2_input = QLineEdit()
+        self.trigger_x2_input.setText("3.14")
+        self.trigger_x2_input.setPlaceholderText("Posición X final")
+        self.trigger_x2_input.textChanged.connect(self.actualizar_grafica)
+        trigger_layout.addRow("X Final (Trigger 2):", self.trigger_x2_input)
+        
+        # Etiqueta de información
+        trigger_info = QLabel(
+            "📍 Los triggers muestran:\n"
+            "  • Líneas verticales en X\n"
+            "  • Punto de intersección\n"
+            "  • Valor Y en ese punto\n"
+            "  • Distancia entre triggers"
+        )
+        trigger_info.setWordWrap(True)
+        trigger_info.setStyleSheet("color: #666; font-size: 9px;")
+        trigger_layout.addRow("", trigger_info)
+        
+        trigger_group.setLayout(trigger_layout)
+        left_panel.addWidget(trigger_group)
         
         # Grupo: Coeficientes
         coef_group = QGroupBox("Coeficientes de Fourier")
@@ -142,6 +184,9 @@ class FourierVisualizer(QMainWindow):
         self.figure = Figure(figsize=(10, 8), dpi=100)
         self.canvas = FigureCanvas(self.figure)
         self.canvas.mpl_connect('scroll_event', self.on_scroll)
+        self.canvas.mpl_connect('button_press_event', self.on_press)
+        self.canvas.mpl_connect('button_release_event', self.on_release)
+        self.canvas.mpl_connect('motion_notify_event', self.on_motion)
         right_panel.addWidget(self.canvas)
         
         # Agregar layouts a main
@@ -152,6 +197,35 @@ class FourierVisualizer(QMainWindow):
         
         # Dibujar gráfica inicial
         self.actualizar_grafica()
+    
+    def evaluar_numero(self, text):
+        """
+        Evalúa un número o expresión simple
+        
+        Parámetros:
+        -----------
+        text : str
+            Texto a evaluar (puede ser número o expresión simple)
+        
+        Retorna:
+        --------
+        float : Resultado
+        """
+        try:
+            safe_dict = {
+                'pi': np.pi,
+                'e': np.e,
+                'sin': np.sin,
+                'cos': np.cos,
+                'tan': np.tan,
+                'sqrt': np.sqrt,
+                'exp': np.exp,
+                'log': np.log,
+            }
+            resultado = eval(text, {"__builtins__": {}}, safe_dict)
+            return float(resultado)
+        except:
+            return None
     
     def evaluar_expresion(self, expr, n_val):
         """
@@ -301,14 +375,67 @@ class FourierVisualizer(QMainWindow):
                     except:
                         pass
             
+            # ============ TRIGGERS ============
+            trigger_info_text = "Triggers: "
+            
+            # Solo procesar triggers si están habilitados
+            if self.trigger_enabled.isChecked():
+                trigger_x1_str = self.trigger_x1_input.text().strip()
+                trigger_x2_str = self.trigger_x2_input.text().strip()
+                
+                # Evaluar posiciones de triggers
+                trigger_x1 = self.evaluar_numero(trigger_x1_str)
+                trigger_x2 = self.evaluar_numero(trigger_x2_str)
+            else:
+                trigger_x1 = None
+                trigger_x2 = None
+            
+            # Dibujar trigger 1
+            if self.trigger_enabled.isChecked() and trigger_x1 is not None:
+                # Línea vertical roja
+                ax.axvline(x=trigger_x1, color='red', linestyle='--', linewidth=1.5, alpha=0.7, label='Trigger 1')
+                
+                # Calcular valor Y en trigger 1
+                if self.x_min <= trigger_x1 <= self.x_max:
+                    x_idx = np.argmin(np.abs(x - trigger_x1))
+                    y_val1 = y[x_idx]
+                    # Marcar punto
+                    ax.plot(trigger_x1, y_val1, 'ro', markersize=8)
+                    # Texto
+                    ax.text(trigger_x1, y_val1 + 0.15, f'T1\nx={trigger_x1:.3f}\ny={y_val1:.3f}', 
+                           ha='center', fontsize=9, bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.8))
+                    trigger_info_text += f"T1({trigger_x1:.2f})→y={y_val1:.3f}  "
+            
+            # Dibujar trigger 2
+            if self.trigger_enabled.isChecked() and trigger_x2 is not None:
+                # Línea vertical verde
+                ax.axvline(x=trigger_x2, color='green', linestyle='--', linewidth=1.5, alpha=0.7, label='Trigger 2')
+                
+                # Calcular valor Y en trigger 2
+                if self.x_min <= trigger_x2 <= self.x_max:
+                    x_idx = np.argmin(np.abs(x - trigger_x2))
+                    y_val2 = y[x_idx]
+                    # Marcar punto
+                    ax.plot(trigger_x2, y_val2, 'go', markersize=8)
+                    # Texto
+                    ax.text(trigger_x2, y_val2 - 0.15, f'T2\nx={trigger_x2:.3f}\ny={y_val2:.3f}', 
+                           ha='center', fontsize=9, bbox=dict(boxstyle='round', facecolor='lightgreen', alpha=0.8))
+                    trigger_info_text += f"T2({trigger_x2:.2f})→y={y_val2:.3f}"
+            
+            # Mostrar distancia entre triggers
+            if trigger_x1 is not None and trigger_x2 is not None:
+                distancia = abs(trigger_x2 - trigger_x1)
+                distancia_en_pi = distancia / np.pi
+                trigger_info_text += f"\n  Distancia: {distancia:.3f} ({distancia_en_pi:.3f}π)"
+            
             ax.set_xlim(self.x_min, self.x_max)
             ax.set_ylim(self.y_min, self.y_max)
             ax.set_xlabel('x', fontsize=12)
             ax.set_ylabel('f(x)', fontsize=12)
-            ax.set_title(f'Serie de Fourier - {tipo}\na_n: {expr_an[:30]} | b_n: {expr_bn[:30]}', 
-                        fontsize=12, fontweight='bold')
+            ax.set_title(f'Serie de Fourier - {tipo}\na_n: {expr_an[:30]} | b_n: {expr_bn[:30]}\n{trigger_info_text}', 
+                        fontsize=11, fontweight='bold')
             ax.grid(True, alpha=0.3)
-            ax.legend()
+            ax.legend(loc='upper right')
             
             self.canvas.draw()
             
@@ -318,6 +445,47 @@ class FourierVisualizer(QMainWindow):
             if len(error_msg) > 100:
                 error_msg = error_msg[:100] + "..."
             # Silenciosamente ignorar errores de evaluación durante escritura
+    
+    def on_press(self, event):
+        """Maneja presionar el botón del ratón"""
+        if event.inaxes is None:
+            return
+        
+        # Guardar posición inicial del pan
+        self.pan_press = True
+        self.pan_xpress = event.xdata
+        self.pan_ypress = event.ydata
+    
+    def on_release(self, event):
+        """Maneja soltar el botón del ratón"""
+        self.pan_press = None
+        self.pan_xpress = None
+        self.pan_ypress = None
+    
+    def on_motion(self, event):
+        """Maneja mover el ratón para hacer pan"""
+        if event.inaxes is None or self.pan_press is None:
+            return
+        
+        if self.pan_xpress is None or self.pan_ypress is None:
+            return
+        
+        # Calcular el desplazamiento
+        dx = self.pan_xpress - event.xdata
+        dy = self.pan_ypress - event.ydata
+        
+        # Calcular nuevos límites
+        x_range = self.x_max - self.x_min
+        y_range = self.y_max - self.y_min
+        
+        # Aplicar pan
+        self.x_min += dx
+        self.x_max += dx
+        self.y_min += dy
+        self.y_max += dy
+        
+        # Actualizar gráfica
+        self.actualizar_grafica()
     
     def on_scroll(self, event):
         """Maneja el evento de scroll de la rueda del ratón"""
