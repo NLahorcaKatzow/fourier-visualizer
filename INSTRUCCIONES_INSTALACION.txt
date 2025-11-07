@@ -1,0 +1,95 @@
+╔════════════════════════════════════════════════════════════════╗
+║     VISUALIZADOR DE SERIES DE FOURIER - INSTALACIÓN        ║
+║                                                              ║
+║               ¡Bienvenido! Gracias por usar esta app       ║
+╚════════════════════════════════════════════════════════════════╝
+
+OPCIÓN 1: USAR DIRECTAMENTE (RECOMENDADO)
+═══════════════════════════════════════════
+
+1. Busca la carpeta: dist/
+2. Encuentra el archivo: Visualizador Fourier.exe
+3. Haz DOBLE CLIC para abrir
+4. ¡Listo! La aplicación abrirá inmediatamente
+
+NO NECESITAS INSTALAR NADA - ¡Es un ejecutable independiente!
+
+
+OPCIÓN 2: RECOMPILAR DESDE EL CÓDIGO FUENTE
+════════════════════════════════════════════
+
+REQUISITOS:
+- Windows 7 o superior (64-bit)
+- Python 3.8+ (descargar de python.org)
+
+PASOS:
+
+1. Abre PowerShell o CMD en esta carpeta
+
+2. Ejecuta: build.bat
+   (Se instalará todo automáticamente)
+
+3. El nuevo ejecutable estará en: dist/Visualizador Fourier.exe
+
+
+SOLUCIÓN DE PROBLEMAS
+═════════════════════
+
+❌ "No se puede ejecutar el archivo"
+→ Instala Visual C++ Redistributable:
+  https://support.microsoft.com/en-us/help/2977003
+
+❌ "Acceso denegado"
+→ Intenta ejecutar como Administrador (botón derecho)
+
+❌ "Python no encontrado"
+→ Descarga Python desde https://www.python.org
+→ Asegúrate de marcar "Add Python to PATH"
+
+
+CARACTERÍSTICAS
+═══════════════
+
+✓ Serie Real (coseno + seno)
+✓ Serie Imaginaria (exponencial compleja)
+✓ Control de parámetros a_n, b_n, a_0
+✓ Ajusta n de 1 a 100 términos
+✓ Zoom interactivo (rueda del ratón)
+✓ Gráficas en tiempo real
+
+
+DISTRIBUCIÓN
+════════════
+
+Para compartir con otros:
+1. Abre la carpeta: dist/
+2. Copia: Visualizador Fourier.exe
+3. Envía a otros usuarios
+4. Ellos solo necesitan hacer doble clic
+
+
+INFORMACIÓN TÉCNICA
+═══════════════════
+
+- Desarrollado con: Python 3.13, PyQt6, Matplotlib
+- Tamaño: ~65 MB
+- Windows: Totalmente compatible
+- No requiere instalación
+- No modifica el registro de Windows
+- Seguro para usar
+
+
+CONTACTO / AYUDA
+════════════════
+
+Abre los archivos:
+- README.md → Información detallada y matemática
+- GUIA_RAPIDA.md → Ejemplos y trucos
+
+
+═══════════════════════════════════════════════════════════════
+
+¡Disfruta explorando las Series de Fourier! 🌊✨
+
+═══════════════════════════════════════════════════════════════
+

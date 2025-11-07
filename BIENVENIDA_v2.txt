@@ -1,0 +1,235 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                                                                              ║
+║          🎉 ¡BIENVENIDO A VISUALIZADOR DE FOURIER v2.0! 🎉                 ║
+║                                                                              ║
+║                    ⭐ ACTUALIZACIÓN MAYOR - NUEVAS CARACTERÍSTICAS           ║
+║                                                                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+
+🚀 ¿QUÉ HAY DE NUEVO?
+═══════════════════════════════════════════════════════════════════════════════
+
+LA CARACTERÍSTICA MÁS ESPERADA:
+
+   Los coeficientes a_n y b_n ahora pueden ser FUNCIONES DE n
+
+EJEMPLOS:
+
+   Antes:   a_n = 1.0   (siempre igual)
+   Ahora:   a_n = 2/(n**2)*(-1)**n  (cambia cada n)
+
+   Resultado: ¡CONTROL TOTAL sobre tus series de Fourier!
+
+
+⚡ EMPIEZA AHORA
+═══════════════════════════════════════════════════════════════════════════════
+
+1. Abre: dist/Visualizador Fourier.exe
+
+2. Intenta esto:
+   • Tipo: Serie Real
+   • a₀: 0
+   • a_n: 0
+   • b_n: 4/(pi*n)
+   • n: 50
+   
+   ¡Obtendrás una ONDA CUADRADA PERFECTA!
+
+
+📚 DOCUMENTACIÓN IMPORTANTE
+═══════════════════════════════════════════════════════════════════════════════
+
+Lee en este orden:
+
+1. 📖 CAMBIOS_v2.md
+   → Explicación rápida de cambios
+   → Ejemplos prácticos inmediatos
+   
+2. 🎯 FUNCIONES_COMO_COEFICIENTES.md
+   → Guía completa sobre la nueva característica
+   → Todas las funciones soportadas
+   → Sintaxis completa
+
+3. 📝 EJEMPLOS_COEFICIENTES.txt
+   → 20+ ejemplos listos para copiar/pegar
+   → Desde ondas clásicas hasta experimentales
+   → Con explicaciones
+
+
+💡 3 EJEMPLOS RÁPIDOS
+═══════════════════════════════════════════════════════════════════════════════
+
+ONDA CUADRADA:
+   a₀ = 0
+   a_n = 0
+   b_n = 4/(pi*n)
+   n = 50
+
+DIENTE DE SIERRA:
+   a₀ = 0
+   a_n = 0
+   b_n = 2*(-1)**(n+1)/n
+   n = 50
+
+OSCILACIÓN AMORTIGUADA:
+   a₀ = 0
+   a_n = exp(-n/5)*cos(n*pi/4)
+   b_n = exp(-n/5)*sin(n*pi/4)
+   n = 30
+
+
+🎓 FUNCIÓN COMPLETA DISPONIBLE
+═══════════════════════════════════════════════════════════════════════════════
+
+Soporta:
+
+  ✅ Operadores: +, -, *, /, ** (potencia), % (módulo)
+  
+  ✅ Trigonometría: sin, cos, tan, arcsin, arccos, arctan
+  
+  ✅ Hiperbólica: sinh, cosh, tanh
+  
+  ✅ Exponencial: exp, log, log10, sqrt
+  
+  ✅ Constantes: pi, e
+  
+  ✅ Variable: n (el índice actual)
+  
+  ✅ NumPy: np.sin, np.exp, etc.
+
+
+❌ NO SOPORTA (por seguridad):
+   • Condicionales (if/else)
+   • Bucles
+   • Acceso a archivos
+   • Importación de módulos
+   • Otras variables que no sean n
+
+
+🌟 CASOS DE USO COMUNES
+═══════════════════════════════════════════════════════════════════════════════
+
+1. Reproducir Ondas Clásicas
+   → Onda cuadrada, diente de sierra, triangular, etc.
+
+2. Crear Ondas Personalizadas
+   → Experimenta con diferentes funciones
+
+3. Aprender Matemática
+   → Visualiza cómo cambian los coeficientes
+
+4. Procesamiento de Señales
+   → Crea patrones específicos
+
+5. Investigación y Desarrollo
+   → Explora nuevas series
+
+
+✨ LO QUE PUEDES HACER AHORA
+═══════════════════════════════════════════════════════════════════════════════
+
+✓ Definir coeficientes como funciones de n
+✓ Usar expresiones matemáticas complejas
+✓ Reproducir cualquier serie conocida
+✓ Crear ondas nuevas
+✓ Aprender interactivamente
+✓ Exportar visualizaciones
+
+TODO EN TIEMPO REAL - La gráfica se actualiza mientras escribes
+
+
+🛠️ CAMBIOS TÉCNICOS
+═══════════════════════════════════════════════════════════════════════════════
+
+• Interfaz mejorada (inputs de texto en lugar de spinboxes)
+• Evaluación segura de expresiones
+• Mejor renderizado de títulos
+• Manejo robusto de errores
+• Rendimiento optimizado
+
+
+⚙️ COMPATIBILIDAD
+═══════════════════════════════════════════════════════════════════════════════
+
+✅ Windows 7, 8, 10, 11 (64-bit)
+✅ Retrocompatible con v1.0
+✅ Tus valores antiguos siguen funcionando
+✅ 65 MB de espacio
+
+
+🚀 PRÓXIMOS PASOS
+═══════════════════════════════════════════════════════════════════════════════
+
+OPCIÓN 1: Experimentar Ahora
+   → Ejecuta: dist/Visualizador Fourier.exe
+   → Prueba los 3 ejemplos rápidos
+   
+OPCIÓN 2: Aprender Primero
+   → Lee: CAMBIOS_v2.md (5 min)
+   → Lee: FUNCIONES_COMO_COEFICIENTES.md (15 min)
+   → Luego experimenta
+   
+OPCIÓN 3: Copiar Ejemplos
+   → Abre: EJEMPLOS_COEFICIENTES.txt
+   → Copia/pega en la aplicación
+   → Personaliza según necesites
+
+
+📞 AYUDA RÁPIDA
+═══════════════════════════════════════════════════════════════════════════════
+
+¿Cómo uso esto?
+   → Ver: GUIA_RAPIDA.md
+
+¿Qué funciones puedo usar?
+   → Ver: FUNCIONES_COMO_COEFICIENTES.md
+
+¿Tienes ejemplos?
+   → Ver: EJEMPLOS_COEFICIENTES.txt
+
+¿Preguntas?
+   → Ver: FAQ.md
+
+¿Errores?
+   → Ver: INSTRUCCIONES_INSTALACION.txt
+
+
+🎁 VERSIÓN COMPLETA
+═══════════════════════════════════════════════════════════════════════════════
+
+Incluye:
+
+   📁 Ejecutable listo (.exe)
+   📁 Código fuente (fourier_app.py)
+   📁 Documentación completa (20+ archivos)
+   📁 Ejemplos de uso
+   📁 Scripts de compilación
+   📁 FAQs y Troubleshooting
+
+
+═══════════════════════════════════════════════════════════════════════════════
+
+                    ¡DISFRUTA EXPLORAR SERIES DE FOURIER! 🌊✨
+
+═══════════════════════════════════════════════════════════════════════════════
+
+
+PRIMEROS PASOS RECOMENDADOS:
+═══════════════════════════════════════════════════════════════════════════════
+
+PASO 1: Lee esto                  ← TÚ ESTÁS AQUÍ
+PASO 2: Abre CAMBIOS_v2.md        (3 minutos)
+PASO 3: Ejecuta la aplicación     (dist/Visualizador Fourier.exe)
+PASO 4: Prueba los ejemplos       (EJEMPLOS_COEFICIENTES.txt)
+PASO 5: ¡Crea tus propias series! 🌊
+
+
+═══════════════════════════════════════════════════════════════════════════════
+
+                         Versión: 2.0
+                         Fecha: Noviembre 2025
+                         Estado: 🟢 Completamente Funcional
+                         
+═══════════════════════════════════════════════════════════════════════════════
+

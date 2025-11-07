@@ -1,0 +1,180 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                                                                              ║
+║                  🌊 VISUALIZADOR DE SERIES DE FOURIER 🌊                    ║
+║                                                                              ║
+║                           GUÍA DE INICIO RÁPIDO                             ║
+║                                                                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+
+👉 PRIMER PASO - EJECUTA LA APLICACIÓN
+═══════════════════════════════════════════════════════════════════════════════
+
+1. Abre la carpeta: dist/
+2. Haz DOBLE CLIC en: Visualizador Fourier.exe
+3. ¡Listo! La ventana se abrirá en segundos
+
+
+📚 DOCUMENTACIÓN DISPONIBLE
+═══════════════════════════════════════════════════════════════════════════════
+
+Elige qué leer según lo que necesites:
+
+
+🚀 QUIERO EMPEZAR AHORA
+   └─→ GUIA_RAPIDA.md
+       • Cómo usar la interfaz
+       • Ejemplos rápidos
+       • Ajustes del zoom
+
+
+📖 QUIERO ENTENDER LA MATEMÁTICA
+   └─→ README.md
+       • Explicación de Series de Fourier
+       • Fórmulas matemáticas
+       • Usos prácticos
+       • Ejemplos de ondas
+
+
+❓ TENGO UNA PREGUNTA
+   └─→ FAQ.md
+       • Preguntas frecuentes
+       • Solución de problemas
+       • Información técnica
+
+
+💾 QUIERO INSTALAR O COMPILAR
+   └─→ INSTRUCCIONES_INSTALACION.txt
+       • Cómo abrir la aplicación
+       • Cómo compilar desde código
+       • Requisitos del sistema
+
+
+📦 QUIERO COMPARTIR LA APLICACIÓN
+   └─→ DISTRIBUCION.md
+       • Por email
+       • En USB
+       • En la nube (Google Drive, etc)
+       • En GitHub
+
+
+📋 RESUMEN DEL PROYECTO
+   └─→ RESUMEN_PROYECTO.txt
+       • Características implementadas
+       • Archivos del proyecto
+       • Tecnología usada
+       • Verificación de compilación
+
+
+🔧 QUIERO MODIFICAR O PROGRAMAR
+   └─→ ejemplo_uso.py
+       • Código Python de ejemplo
+       • Cómo usar sin interfaz gráfica
+       • Extensiones posibles
+
+
+═══════════════════════════════════════════════════════════════════════════════
+
+
+✨ LO MÁS IMPORTANTE
+═══════════════════════════════════════════════════════════════════════════════
+
+Tu aplicación está LISTA PARA USAR:
+
+  ✅ Ejecutable funcional (dist/Visualizador Fourier.exe)
+  ✅ Sin requisitos adicionales
+  ✅ Código fuente disponible
+  ✅ Completamente funcional
+  ✅ Listo para compartir
+
+
+💡 CONSEJOS INICIALES
+═══════════════════════════════════════════════════════════════════════════════
+
+1. Probá diferentes valores de a_n y b_n
+2. Aumentá gradualmente el valor de n
+3. Usa el zoom para explorar detalles
+4. Intenta cambiar entre Real e Imaginaria
+5. Experimenta sin miedo
+
+
+📊 FLUJO RECOMENDADO PARA PRINCIPIANTES
+═══════════════════════════════════════════════════════════════════════════════
+
+1. Ejecuta la aplicación
+   ↓
+2. Lee GUIA_RAPIDA.md (5 minutos)
+   ↓
+3. Juega con los controles
+   ↓
+4. Lee README.md para entender la matemática
+   ↓
+5. Experimenta con diferentes parámetros
+
+
+📁 ESTRUCTURA DE ARCHIVOS
+═══════════════════════════════════════════════════════════════════════════════
+
+fourier-visualizer/
+│
+├── 📁 dist/
+│   └── Visualizador Fourier.exe ............ ← EJECÚTALO
+│
+├── 📄 INICIO.txt ........................... ← TÚ ESTÁS AQUÍ
+├── 📄 GUIA_RAPIDA.md ....................... ← Empieza aquí
+├── 📄 README.md ............................ ← Documentación completa
+├── 📄 FAQ.md ............................... ← Preguntas frecuentes
+├── 📄 RESUMEN_PROYECTO.txt ................. ← Visión general
+├── 📄 DISTRIBUCION.md ....................... ← Cómo compartir
+├── 📄 INSTRUCCIONES_INSTALACION.txt ........ ← Instalación
+│
+├── 📄 fourier_app.py ....................... ← Código fuente
+├── 📄 ejemplo_uso.py ....................... ← Ejemplos
+├── 📄 requirements.txt ...................... ← Dependencias
+├── 📄 build.bat ............................ ← Compilar
+└── 📄 CREAR_ACCESO_DIRECTO.bat ............ ← Atajos
+
+
+🎯 PRÓXIMOS PASOS
+═══════════════════════════════════════════════════════════════════════════════
+
+Elige uno:
+
+A) USAR AHORA:
+   └─→ dist/Visualizador Fourier.exe (doble clic)
+
+B) APRENDER MÁS:
+   └─→ GUIA_RAPIDA.md
+
+C) COMPARTIR:
+   └─→ DISTRIBUCION.md
+
+D) MODIFICAR:
+   └─→ fourier_app.py + build.bat
+
+E) PREGUNTAS:
+   └─→ FAQ.md
+
+
+═══════════════════════════════════════════════════════════════════════════════
+
+
+🌊 DIVERSIÓN GARANTIZADA
+
+Tu aplicación te permite:
+
+  🎨 Visualizar matemática hermosa
+  🔍 Explorar Series de Fourier interactivamente
+  🧮 Entender conceptos complejos de forma visual
+  🚀 Aprender sobre procesamiento de señales
+  💾 Compartir con amigos y colegas
+
+
+═══════════════════════════════════════════════════════════════════════════════
+
+                   ¡Que disfrutes tu Visualizador de Fourier! 🌊✨
+
+                          Presiona Enter para cerrar...
+
+═══════════════════════════════════════════════════════════════════════════════
+

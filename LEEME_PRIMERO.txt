@@ -1,0 +1,284 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                                                                              ║
+║                  ✨ VISUALIZADOR DE SERIES DE FOURIER v2.0 ✨               ║
+║                                                                              ║
+║                         ⭐ VERSIÓN CON COEFICIENTES DINÁMICOS ⭐            ║
+║                                                                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+
+👋 ¡HOLA! ANTES DE EMPEZAR
+═══════════════════════════════════════════════════════════════════════════════
+
+Este es tu archivo de BIENVENIDA. Léelo primero para entender las novedades.
+
+
+⚡ INICIO RÁPIDO (30 SEGUNDOS)
+═══════════════════════════════════════════════════════════════════════════════
+
+1. Haz doble clic en: dist/Visualizador Fourier.exe
+2. Espera 3-5 segundos a que se abra
+3. ¡Listo! Ya puedes usarla
+
+
+🎯 NUEVA CARACTERÍSTICA PRINCIPAL
+═══════════════════════════════════════════════════════════════════════════════
+
+Ahora los coeficientes a_n y b_n pueden ser EXPRESIONES MATEMÁTICAS:
+
+   ANTES: a_n = 1.0 (siempre constante)
+   AHORA: a_n = 2/(n**2)*(-1)**n (depende de n)
+
+EJEMPLO REAL:
+   Ponle esto:  b_n = 4/(pi*n)
+   Con n = 50
+   ¡Y tendrás una onda cuadrada perfecta!
+
+
+📖 ¿QUÉ LEER?
+═══════════════════════════════════════════════════════════════════════════════
+
+Elige según lo que quieras hacer:
+
+┌─ QUIERO EMPEZAR AHORA ─────────────────────────────────────────┐
+│ → Abre: dist/Visualizador Fourier.exe                          │
+│ → Ve directamente al apartado "3 EJEMPLOS RÁPIDOS"             │
+└────────────────────────────────────────────────────────────────┘
+
+┌─ QUIERO ENTENDER QUÉ CAMBIÓ ─────────────────────────────────┐
+│ → Lee: BIENVENIDA_v2.txt (3 minutos)                          │
+│ → Lee: CAMBIOS_v2.md (5 minutos)                              │
+└────────────────────────────────────────────────────────────────┘
+
+┌─ QUIERO APRENDER LA NUEVA CARACTERÍSTICA ──────────────────┐
+│ → Lee: FUNCIONES_COMO_COEFICIENTES.md (15 minutos)         │
+│ → Es la guía COMPLETA con ejemplos                          │
+└────────────────────────────────────────────────────────────────┘
+
+┌─ QUIERO EJEMPLOS LISTOS PARA COPIAR/PEGAR ────────────────┐
+│ → Abre: EJEMPLOS_COEFICIENTES.txt                          │
+│ → 20+ ejemplos de ondas famosas y experimentales           │
+└────────────────────────────────────────────────────────────────┘
+
+┌─ TENGO DUDAS / PROBLEMAS ────────────────────────────────┐
+│ → Abre: FAQ.md                                             │
+│ → O: INSTRUCCIONES_INSTALACION.txt                         │
+└────────────────────────────────────────────────────────────────┘
+
+
+🎓 3 EJEMPLOS RÁPIDOS
+═══════════════════════════════════════════════════════════════════════════════
+
+Copia y pega directamente en los campos de la aplicación:
+
+
+EJEMPLO 1: ONDA CUADRADA
+─────────────────────────────────────────────────────────────────────
+a₀: 0
+a_n: 0
+b_n: 4/(pi*n)
+n: 50
+
+→ Obtendrás la onda cuadrada más pura que hayas visto
+
+
+EJEMPLO 2: DIENTE DE SIERRA
+─────────────────────────────────────────────────────────────────────
+a₀: 0
+a_n: 0
+b_n: 2*(-1)**(n+1)/n
+n: 50
+
+→ Una rampa suave que se corta abrupta (clásica)
+
+
+EJEMPLO 3: OSCILACIÓN AMORTIGUADA
+─────────────────────────────────────────────────────────────────────
+a₀: 0
+a_n: exp(-n/5)*cos(n*pi/4)
+b_n: exp(-n/5)*sin(n*pi/4)
+n: 30
+
+→ Oscilación que se desvanece exponencialmente (hermosa)
+
+
+✨ LO MÁS IMPORTANTE
+═══════════════════════════════════════════════════════════════════════════════
+
+Tu aplicación ahora permite:
+
+   ✅ Definir a_n y b_n como funciones de n
+   ✅ Usar cualquier expresión matemática
+   ✅ Reproducir ondas conocidas
+   ✅ Crear ondas personalizadas
+   ✅ Explorar matemática interactivamente
+   ✅ Actualizaciones en tiempo real
+
+
+🎨 INTERFAZ MEJORADA
+═══════════════════════════════════════════════════════════════════════════════
+
+PANEL IZQUIERDO:
+  • Tipo de Serie: Switch Real/Imaginaria
+  • n: Número de términos (1-100)
+  • a₀: Campo de texto (puede ser expresión)
+  • a_n: Campo de texto (puede ser expresión)
+  • b_n: Campo de texto (puede ser expresión)
+  • Botones de Zoom
+  • Información de ayuda
+
+PANEL DERECHO:
+  • Gráfica interactiva
+  • Zoom con rueda del ratón
+  • Título mostrando tus expresiones
+  • Actualización en tiempo real
+
+
+💡 FUNCIONES DISPONIBLES
+═══════════════════════════════════════════════════════════════════════════════
+
+Operadores:
+  +, -, *, /, ** (potencia), % (módulo)
+
+Trigonometría:
+  sin, cos, tan, arcsin, arccos, arctan
+
+Exponencial:
+  exp, log, log10, sqrt
+
+Hiperbólica:
+  sinh, cosh, tanh
+
+Constantes:
+  pi, e
+
+Variable:
+  n (el índice actual)
+
+NumPy:
+  np.sin, np.exp, etc.
+
+
+❌ PROHIBIDO (por seguridad):
+  - Condicionales (if/else)
+  - Bucles
+  - Acceso a archivos
+  - Importaciones
+
+
+📂 ARCHIVOS IMPORTANTES
+═══════════════════════════════════════════════════════════════════════════════
+
+dist/
+  └── Visualizador Fourier.exe .......... EJECUTABLE
+
+DOCUMENTACIÓN:
+  ├── LEEME_PRIMERO.txt ................. ESTE ARCHIVO
+  ├── BIENVENIDA_v2.txt ................. Para entender novedades
+  ├── CAMBIOS_v2.md ..................... Resumen de cambios
+  ├── FUNCIONES_COMO_COEFICIENTES.md ... GUÍA COMPLETA (muy importante)
+  ├── EJEMPLOS_COEFICIENTES.txt ........ 20+ Ejemplos listos
+  ├── GUIA_RAPIDA.md ................... Guía básica
+  ├── FAQ.md ........................... Preguntas frecuentes
+  └── README.md ........................ Documentación general
+
+CÓDIGO FUENTE:
+  ├── fourier_app.py ................... Código Python
+  ├── ejemplo_uso.py ................... Ejemplos de uso
+  ├── requirements.txt ................. Dependencias
+  └── build.bat ........................ Script de compilación
+
+
+🚀 PRIMEROS PASOS RECOMENDADOS
+═══════════════════════════════════════════════════════════════════════════════
+
+OPCIÓN A: Experimentador Impaciente (5 minutos)
+1. Ejecuta: dist/Visualizador Fourier.exe
+2. Copia/pega los "3 EJEMPLOS RÁPIDOS" (arriba)
+3. ¡Juega y experimenta!
+
+OPCIÓN B: Aprendiz Curiosa (20 minutos)
+1. Lee: BIENVENIDA_v2.txt
+2. Lee: CAMBIOS_v2.md
+3. Ejecuta: dist/Visualizador Fourier.exe
+4. Prueba los ejemplos
+
+OPCIÓN C: Estudiante Meticulosa (1 hora)
+1. Lee: BIENVENIDA_v2.txt
+2. Lee: CAMBIOS_v2.md
+3. Lee: FUNCIONES_COMO_COEFICIENTES.md
+4. Abre: EJEMPLOS_COEFICIENTES.txt
+5. Experimenta con la aplicación
+
+OPCIÓN D: Desarrolladora (2+ horas)
+1. Lee todo
+2. Analiza: fourier_app.py
+3. Modifica el código
+4. Ejecuta: build.bat para compilar
+
+
+🎯 PRUEBA DE 2 MINUTOS
+═══════════════════════════════════════════════════════════════════════════════
+
+1. Abre: dist/Visualizador Fourier.exe
+2. Espera a que cargue
+3. En el campo "b_n" escribe: 4/(pi*n)
+4. Observa la gráfica
+5. Aumenta n a 50
+6. ¡Ves cómo la onda cuadrada es más definida!
+
+¡Eso es todo!
+
+
+✅ VERIFICACIÓN
+═══════════════════════════════════════════════════════════════════════════════
+
+Asegúrate de que tienes:
+
+☑ Ejecutable: dist/Visualizador Fourier.exe (65 MB)
+☑ Documentación: Múltiples archivos .md y .txt
+☑ Código fuente: fourier_app.py
+☑ Ejemplos: EJEMPLOS_COEFICIENTES.txt
+
+Si falta algo, descarga nuevamente del repositorio.
+
+
+🆘 SOLUCIÓN RÁPIDA DE PROBLEMAS
+═══════════════════════════════════════════════════════════════════════════════
+
+No se abre:
+  → Instala: Visual C++ Redistributable
+  → O intenta: Ejecutar como Administrador
+
+Gráfica en blanco:
+  → Intenta cambiar un valor
+  → O haz clic en "Reiniciar Zoom"
+
+¿Errores de expresión?
+  → Consulta: FUNCIONES_COMO_COEFICIENTES.md
+  → O: EJEMPLOS_COEFICIENTES.txt
+
+Más ayuda:
+  → Abre: FAQ.md
+
+
+═══════════════════════════════════════════════════════════════════════════════
+
+                        ¿LISTO PARA EMPEZAR?
+
+              👉 Abre ahora: dist/Visualizador Fourier.exe 👈
+
+═══════════════════════════════════════════════════════════════════════════════
+
+
+                     ¡QUE DISFRUTES FOURIER! 🌊✨
+
+═══════════════════════════════════════════════════════════════════════════════
+
+Versión: 2.0
+Fecha: Noviembre 2025
+Estado: ✅ LISTA PARA USAR
+Tamaño: 65 MB
+
+¡Disfruta creando hermosas series de Fourier!
+
